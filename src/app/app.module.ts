@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule } from '@angular/router';
+import { UIDependModule } from './uidepend.module';
 
 import { AppComponent } from './app.component';
 import { ItemTypeComponent } from './item-type/item-type.component';
@@ -8,6 +13,48 @@ import { ItemComponent } from './item/item.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { StorageService } from './storage.service';
+import { HomePageComponent } from './home-page/home-page.component';
+
+export const AppRoutes: Routes = [
+  {
+      path: '',
+      redirectTo: '/home',
+      pathMatch: 'full',
+  },
+  { path: 'home', component: HomePageComponent },
+  { 
+    path: 'itemtype', 
+    component: ItemTypeComponent,
+    children: [
+      {
+        path: '',
+        component: ItemTypeListComponent
+      }
+    ]
+  },
+  {
+    path: 'item',
+    component: ItemComponent,
+    children: [
+      {
+        path: '',
+        component: ItemListComponent
+      }, 
+      {
+        path: 'create',
+        component: ItemDetailComponent
+      }, 
+      {
+        path: 'display/:id',
+        component: ItemDetailComponent
+      }, 
+      {
+        path: 'edit/:id',
+        component: ItemDetailComponent
+      }
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
@@ -16,10 +63,17 @@ import { StorageService } from './storage.service';
     ItemTypeListComponent,
     ItemComponent,
     ItemListComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    HomePageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    RouterModule.forRoot(AppRoutes),
+    ReactiveFormsModule,
+    HttpClientModule,
+    UIDependModule
   ],
   providers: [
     StorageService

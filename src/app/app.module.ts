@@ -14,6 +14,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { StorageService } from './storage.service';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export const AppRoutes: Routes = [
   {
@@ -64,7 +65,8 @@ export const AppRoutes: Routes = [
     ItemComponent,
     ItemListComponent,
     ItemDetailComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

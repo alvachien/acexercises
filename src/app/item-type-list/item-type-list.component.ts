@@ -11,7 +11,7 @@ export class ItemTypeListComponent implements OnInit {
   constructor(public _storage: StorageService) { }
 
   ngOnInit() {
-    this._storage.fetchAllExeciseItemTypes().subscribe(x => {
+    this._storage.fetchAllExerciseItemTypes().subscribe(x => {
     });
   }
 }

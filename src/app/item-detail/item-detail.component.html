@@ -1,3 +1,25 @@
-<p>
-  item-detail works!
-</p>
+<div class="itemdetail-container">
+  <mat-form-field>
+    <textarea matInput placeholder="Question" [(ngModel)]="itemObj.Question"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Answer" [(ngModel)]="itemObj.Answer"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-chip-list #typeList>
+      <mat-chip *ngFor="let fruit of fruits" selectable="true"
+                removable="true" (remove)="removeType(fruit)">
+        {{fruit.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+
+      <input placeholder="New type..."
+              [matChipInputFor]="typeList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addType($event)" />
+    </mat-chip-list>  
+  </mat-form-field>
+</div>

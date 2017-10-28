@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 const ITEMTYPES = 'itemtype';
 const ITEMS = 'item';
 export const SECTIONS = {
-  [ITEMS]: 'Items',
   [ITEMTYPES]: 'ItemTypes',
+  [ITEMS]: 'Items',
 };
 const SECTIONS_KEYS = Object.keys(SECTIONS);
 

@@ -9,15 +9,19 @@
      *ngFor="let key of sectionKeys"
      [routerLink]="key">{{sections[key]}}</a>
   <div class="flex-spacer"></div>
-  <a mat-button class="docs-button docs-navbar-hide-small" href="https://github.com/angular/material2"
-     aria-label="GitHub Repository">
+  <a mat-button class="docs-button docs-navbar-hide-small" 
+    target="_blank"
+    href="https://github.com/alvachien/acexercise"
+    aria-label="GitHub Repository">
     <img class="docs-angular-logo"
          src="../../../assets/img/github-circle-white-transparent.svg"
          alt="angular">
     GitHub
   </a>
-  <a mat-icon-button class="docs-button docs-navbar-show-small"
-     href="https://github.com/angular/material2" aria-label="GitHub Repository">
+  <a mat-icon-button 
+     class="docs-button docs-navbar-show-small"
+     target="_blank"
+     href="https://github.com/alvachien/acexercise" aria-label="GitHub Repository">
     <img class="docs-angular-logo"
          src="../../../assets/img/github-circle-white-transparent.svg"
          alt="angular">

@@ -1,0 +1,10 @@
+.itemdetail-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;  
+}
+
+.itemdetail-container > * {
+  width: 100%;
+  margin: 2px;
+}

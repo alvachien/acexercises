@@ -22,7 +22,7 @@ export class StorageService {
 
   public fetchAllExeciseItemTypes(forceReload?: boolean): Observable<ExeciseItemType[]> {
     if (!this._isTypeListLoaded || forceReload) {
-      const apiurl = environment.ApiUrl + '/api/ExerItemType';
+      const apiurl = environment.ApiUrl + '/ExerItemType';
 
       let headers = new HttpHeaders();
       headers = headers.append('Content-Type', 'application/json')
@@ -35,8 +35,8 @@ export class StorageService {
           let listRst: ExeciseItemType[] = [];
           const rjs = <any>response;
 
-          if (rjs.totalCount > 0 && rjs.contentList instanceof Array && rjs.contentList.length > 0) {
-            for (const si of rjs.contentList) {
+          if (rjs instanceof Array && rjs.length > 0) {
+            for (const si of rjs) {
               const rst: ExeciseItemType = new ExeciseItemType();
               rst.onSetData(si);
               listRst.push(rst);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-item-type-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemTypeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _storage: StorageService) { }
 
   ngOnInit() {
+    this._storage.fetchAllExeciseItemTypes().subscribe(x => {
+    });
   }
-
 }
